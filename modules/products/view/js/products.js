@@ -204,7 +204,7 @@ $(document)
     $.get(
       "modules/products/controller/controller_products.class.php?load_data=true",
       function(response) {
-        // alert(response.user);
+
         if (response.product === "") {
           $("#serial_number").val('');
           $("#category").val('Photovoltaic');

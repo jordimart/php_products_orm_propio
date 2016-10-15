@@ -45,11 +45,13 @@ function alta_products() {
         );
 
         //aquí insertaremos en base de datos
+        //Para ello utilizo la funcion loadModel de la utilidad common.inc
         $arrValue = false;
         $path_model = $_SERVER['DOCUMENT_ROOT'] . '/modules/products/model/model/';
+        //llamamos al modelo produts y a crear
         $arrValue = loadModel($path_model, "product_model", "create_product", $arrArgument);
-        //echo json_encode($arrValue);
-        //die();
+        echo json_encode($arrValue);
+        exit();
         if ($arrValue){
                     $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
                 }else{
