@@ -4,8 +4,8 @@ $path = $_SERVER['DOCUMENT_ROOT'] ;
 define('SITE_ROOT', $path);
 define('MODEL_PATH', SITE_ROOT . 'model/');
 
-require (MODEL_PATH . "Db.class.singleton.php");
-require(SITE_ROOT . "modules/products/model/DAO/product_dao.class.singleton.php");
+require (MODEL_PATH . "/Db.class.singleton.php");
+require(SITE_ROOT . "/modules/products/model/DAO/product_dao.class.singleton.php");
 
 class product_bll {
 
