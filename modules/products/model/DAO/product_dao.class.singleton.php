@@ -15,41 +15,52 @@ class productDAO {
     }
 
     public function create_product_DAO($db, $arrArgument) {
-      /*  $name = $arrArgument['name'];
-        $last_name = $arrArgument['last_name'];
-        $birth_date = $arrArgument['birth_date'];
-        $title_date = $arrArgument['title_date'];
-        $address = $arrArgument['address'];
-        $user = $arrArgument['user'];
-        $pass = $arrArgument['pass'];
-        $email = $arrArgument['email'];
-        $en_lvl = $arrArgument['en_lvl'];
-        $interests = $arrArgument['interests'];
+
+        $serial_number = $arrArgument['serial_number'];
+        $category = $arrArgument['category'];
+        $trademark = $arrArgument['trademark'];
+        $model = $arrArgument['model'];
+        $date_entry = $arrArgument['date_entry'];
+        $date_exit = $arrArgument['date_exit'];
+        $purchase_price = $arrArgument['purchase_price'];
+        $sale_price = $arrArgument['sale_price'];
+        $provider = $arrArgument['provider'];
+        $weight = $arrArgument['weight'];
+        $height = $arrArgument['height'];
+        $width = $arrArgument['width'];
+        $description = $arrArgument['description'];
+        $status = $arrArgument['status'];
+        $warranty = $arrArgument['warranty'];
         $avatar = $arrArgument['avatar'];
 
-        $history = 0;
-        $music = 0;
-        $computing = 0;
-        $magic = 0;
+        $Any = 0;
+        $six_months = 0;
+        $one_year = 0;
+        $five_years = 0;
+        $eight_years = 0;
 
-        foreach ($interests as $indice) {
-            if ($indice === 'History')
-                $history = 1;
-            if ($indice === 'Music')
-                $music = 1;
-            if ($indice === 'Computing')
-                $computing = 1;
-            if ($indice === 'Magic')
-                $magic = 1;
+        foreach ($warranty as $indice) {
+            if ($indice === 'Any')
+                $Any = 1;
+            if ($indice === '6 months')
+                $six_months = 1;
+            if ($indice === '1 year')
+                $one_year = 1;
+            if ($indice === '5 years')
+                $five_years = 1;
+            if ($indice === '8 years')
+                $eight_years = 1;
         }
 
-        $sql = "INSERT INTO products (name, last_name, birth_date, title_date,"
-                . " address, user, pass, email, en_lvl,Computing,History,Magic,Music, avatar"
-                . " ) VALUES ('$name', '$last_name', '$birth_date',"
-                . " '$title_date', '$address', '$user', '$pass', '$email', '$en_lvl', '$computing', '$history', '$magic', '$music', '$avatar')";
 
-        return $db->ejecutar($sql);*/
-        return ("Estoy dentro del Dao");
+        $sql = "INSERT INTO products(serial_number, category, trademark, model,"
+                  . " date_entry, date_exit,purchase_price,sale_price,provider,weight,height,"
+                  . " width,description,status,Any,6_months,1_year,5_years,8_years,avatar)"
+                  . " VALUES ('$serial_number','$category','$trademark','$model','$date_entry','$date_exit','$purchase_price','$sale_price',"
+                  . " '$provider','$weight','$height','$width','$description','$status','$Any','$six_months','$one_year','$five_years','$eight_years','$avatar')";
+
+        return $db->ejecutar($sql);
+        //return ("Estoy dentro del Dao");
     }
 
 }

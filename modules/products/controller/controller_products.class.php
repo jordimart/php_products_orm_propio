@@ -19,7 +19,7 @@ function alta_products() {
     //exit;
 //si no hay avatar pone la ruta de default
     if (empty($_SESSION['result_avatar'])) {
-        $_SESSION['result_avatar'] = array('result' => true, 'error' => "", 'data' => '/php_products/media/default-avatar.png');
+        $_SESSION['result_avatar'] = array('result' => true, 'error' => "", 'data' => '/media/default-avatar.png');
     }
     //coge la url de la foto
     $result_avatar = $_SESSION['result_avatar'];
@@ -50,8 +50,8 @@ function alta_products() {
         $path_model = $_SERVER['DOCUMENT_ROOT'] . '/modules/products/model/model/';
         //llamamos al modelo produts y a crear
         $arrValue = loadModel($path_model, "product_model", "create_product", $arrArgument);
-        echo json_encode($arrValue);
-        exit();
+        //echo json_encode($arrValue);
+        //exit();
         if ($arrValue){
                     $mensaje = "Su registro se ha efectuado correctamente, para finalizar compruebe que ha recibido un correo de validacion y siga sus instrucciones";
                 }else{
