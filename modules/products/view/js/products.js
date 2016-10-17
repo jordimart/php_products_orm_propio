@@ -626,8 +626,26 @@ function validate_products() {
 
         },
         "json")
-      .fail(function(xhr) {
+      .fail(function(xhr, textStatus, errorThrown) {
         console.log(xhr);
+        if (xhr.status === 0) {
+          alert('Not connect: Verify Network.');
+        } else if (xhr.status == 404) {
+          alert('Requested page not found [404]');
+        } else if (xhr.status == 500) {
+          alert('Internal Server Error [500].');
+        } else if (textStatus === 'parsererror') {
+          alert('Requested JSON parse failed.');
+        } else if (textStatus === 'timeout') {
+          alert('Time out error.');
+        } else if (textStatus === 'abort') {
+          alert('Ajax request aborted.');
+        } else {
+          alert('Uncaught Error: ' + xhr.responseText);
+        }
+        if (xhr.responseJSON == 'undefined' && xhr.responseJSON == null)
+          xhr.responseJSON = JSON.parse(xhr.responseText);
+
         if (xhr.responseJSON.error.serial_number)
           $("#serial_number")
           .focus()
@@ -692,8 +710,7 @@ function validate_products() {
 
         // errores imagen
         if (xhr.responseJSON.success1) {
-          if (xhr.responseJSON.img_avatar !==
-            "/php_products/media/default-avatar.png") {}
+          if (xhr.responseJSON.img_avatar !== "/media/default-avatar.png") {}
         } else {
           $("#progress").hide();
           $('.msg').text('').removeClass('msg_ok');

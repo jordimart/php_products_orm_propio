@@ -24,6 +24,7 @@ function alta_products() {
     //coge la url de la foto
     $result_avatar = $_SESSION['result_avatar'];
 
+
     if (($result['result']) && ($result_avatar['result'])) {
         $arrArgument = array(
             'serial_number' => ucfirst($result['data']['serial_number']),
